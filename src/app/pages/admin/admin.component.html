@@ -1,0 +1,22 @@
+<style>
+    .container {
+        display: flex;
+    }
+
+    .left-menu{
+        width: 150px;
+        background-color: #6db83440;
+    }
+
+    .admin-content{
+        padding-left: 5rem;
+    }
+</style>
+<div class="container">
+    <div class="left-menu">
+        <app-left-menu></app-left-menu>
+    </div>
+    <div class="admin-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

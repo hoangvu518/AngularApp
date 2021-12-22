@@ -1,0 +1,49 @@
+<p>Edit Employee </p>
+
+<div>
+    <form [formGroup]="employeeForm" autocomplete="off" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="first-name">First Name: </label>
+            <input id="first-name" type="text" formControlName="firstName">
+            <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger">
+                <div *ngIf="firstName?.errors?.['required']">
+                    First Name is required.
+                </div>
+                <div *ngIf="firstName?.errors?.['maxlength']">
+                    First Name must be at most 10 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label for="last-name">Last Name: </label>
+            <input id="last-name" type="text" formControlName="lastName">
+            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger">
+                <div *ngIf="lastName?.errors?.['required']">
+                    Last Name is required.
+                </div>
+                <div *ngIf="lastName?.errors?.['maxlength']">
+                    Last Name must be at most 10 characters long.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input id="email" type="text" formControlName="email">
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                <div *ngIf="email?.errors?.['required']">
+                    Email is required.
+                </div>
+                <div *ngIf="email?.errors?.['email']">
+                    Email doesn't have valid format.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" (click)="resetEditEmployee()">Reset </button>
+            <button type="submit">Submit</button>
+        </div>
+</form>
+</div>
