@@ -1,7 +1,7 @@
-<h2>Edit Employee </h2>
+<h2>Create Employee</h2>
 
 <div>
-    <form [formGroup]="employeeForm" autocomplete="off" (ngSubmit)="onSubmit()">
+    <form [formGroup]="employeeCreateForm" autocomplete="off" (ngSubmit)="onSubmit()">
         <div>
             <label for="first-name">First Name: </label>
             <input id="first-name" type="text" formControlName="firstName">
@@ -29,6 +29,22 @@
         </div>
 
         <div>
+            <label for="managerId">Manager Id: </label>
+            <input id="manager" type="number" formControlName="managerId">
+
+        </div>
+
+        <div>
+            <label for="salary">Salary: </label>
+            <input id="salary" type="number" formControlName="salary">
+            <div *ngIf="salary?.invalid && (salary?.dirty || salary?.touched)" class="alert alert-danger">
+                <div *ngIf="salary?.errors?.['max']">
+                    Salary must be < 999999.
+                </div>
+            </div>
+        </div>
+
+        <div>
             <label for="email">Email: </label>
             <input id="email" type="text" formControlName="email">
             <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
@@ -42,7 +58,6 @@
         </div>
 
         <div>
-            <button type="button" (click)="resetEditEmployee()">Reset </button>
             <button type="submit">Submit</button>
         </div>
 </form>

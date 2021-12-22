@@ -20,9 +20,9 @@ export class EmployeeListComponent implements OnInit {
     this.getEmployees();
     this.employeeService.refreshNeeded$
                         .subscribe(()=> this.getEmployees());
-    this.employeeInfoUpdatedSubscription = this.messageBus.of(EmployeeInfoUpdatedMessage).subscribe(message => {
-      this.getEmployees();
-    });
+    // this.employeeInfoUpdatedSubscription = this.messageBus.of(EmployeeInfoUpdatedMessage).subscribe(message => {
+    //   this.getEmployees();
+    // });
   }
 
   getEmployees() {

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
-import { Employee } from '@models/employee';
+import { CreateEmployee, Employee } from '@models/employee';
 import { BehaviorSubject, Observable, Subject, Subscription, tap } from 'rxjs';
 
 @Injectable({
@@ -24,6 +24,15 @@ export class EmployeeService {
 
   updateEmployeeInfo(employee: Employee): Observable<any> {
     return this.http.patch(`${this.baseUrl}/Employee/UpdateEmployeeInfo`, employee, this.httpOptions)
+                    .pipe(
+                      tap(() =>{
+                        this._refreshNeeded$.next();
+                      })
+                    );
+  }
+
+  createEmployee(employee: CreateEmployee): Observable<any> {
+    return this.http.post(`${this.baseUrl}/Employee/CreateEmployee`, employee, this.httpOptions)
                     .pipe(
                       tap(() =>{
                         this._refreshNeeded$.next();

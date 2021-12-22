@@ -52,9 +52,9 @@ export class EmployeeEditComponent implements OnInit {
   onSubmit() {
     console.log("Submitted");
     const employee = <Employee>this.employeeForm.value;
-    console.log(employee);
+    // console.log(employee);
     this.employeeService.updateEmployeeInfo(employee).subscribe();
-    this.messageBus.publish(new EmployeeInfoUpdatedMessage("Employee Info Updated"));
+    // this.messageBus.publish(new EmployeeInfoUpdatedMessage("Employee Info Updated"));
   }
 
   

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { EmployeeEditComponent } from './components/employee-edit/employee-edit.
 import { ReactiveFormsModule } from '@angular/forms';
 import { SecurityComponent } from './pages/security/security.component';
 import { UserSettingsComponent } from './pages/user-settings/user-settings.component';
+import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
+import { HttpErrorInterceptorProvider } from './http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { UserSettingsComponent } from './pages/user-settings/user-settings.compo
     AdminComponent,
     EmployeeEditComponent,
     SecurityComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    EmployeeCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +39,8 @@ import { UserSettingsComponent } from './pages/user-settings/user-settings.compo
     ReactiveFormsModule
 
   ],
-  providers: [
-],
+  providers: [HttpErrorInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

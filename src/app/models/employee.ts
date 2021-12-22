@@ -4,3 +4,11 @@ export interface Employee {
     lastName: string,
     email: string,
 }
+
+export interface CreateEmployee{
+    firstName: string,
+    lastName: string,
+    managerId: number| undefined,
+    salary: number| undefined,
+    email: string,
+}
